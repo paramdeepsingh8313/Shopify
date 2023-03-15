@@ -1,17 +1,36 @@
 import React from "react";
 import "./Card.css";
-import VanHeusenGreenshirt from "../../assets/images/men/VanHeusenGreenshirt.jpg";
+
 import cart from "../../assets/icons/cart.svg";
 import wishlist from "../../assets/icons/wishlist.svg";
 
-function Card() {
+function Card(props) {
   return (
     <div className="card">
       <div className="cardImg">
-        <img src={VanHeusenGreenshirt} />
+        {props.data && props?.data?.categoryId === 1001 ? (
+          <img
+            src={require(`../../assets/images/men/${
+              props.data && props?.data?.img
+            }`)}
+          />
+        ) : props.data && props?.data?.categoryId === 1002 ? (
+          <img
+            src={require(`../../assets/images/women/${
+              props.data && props?.data?.img
+            }`)}
+          />
+        ) : (
+          <img
+            src={require(`../../assets/images/kids/${
+              props.data && props?.data?.img
+            }`)}
+          />
+        )}
       </div>
+
       <div className="cardDesc">
-        <p>Van Huesen</p>
+        <p>{props.data && props?.data?.brand}</p>
       </div>
       <div className="cardBtnDiv">
         <button className="cardBtn">
