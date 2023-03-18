@@ -3,7 +3,7 @@ import Card from "../card/Card";
 import "./Body.css";
 
 function Body(props) {
-  console.log("dataaaaaaa", props.data);
+  // console.log("dataaaaaaa", props.data);
 
   return (
     <>

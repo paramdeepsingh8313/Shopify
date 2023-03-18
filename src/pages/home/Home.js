@@ -6,7 +6,7 @@ import { useStateValue } from "../../redux/StateProvider";
 
 function Home() {
   const [{ apiData }, dispatch] = useStateValue();
-  // console.log("apiDataaaaaaaaaaaaaa", apiData);
+
   return (
     <div>
       <Header />

@@ -5,6 +5,12 @@ import Wishlist from "./pages/wishlist/Wishlist";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState, useReducer } from "react";
 
+import Men from "./pages/men/Men";
+import Women from "./pages/women/Women";
+import Kids from "./pages/kids/Kids";
+import HomeLiving from "./pages/home&living/HomeLiving";
+import Beauty from "./pages/beauty/Beauty";
+
 import { useStateValue } from "./redux/StateProvider";
 
 function App() {
@@ -26,7 +32,7 @@ function App() {
     dispatch({ type: "APIDATA", value: apiResp });
   }, [apiResp]);
 
-  console.log("apiiiiiii", apiResp);
+  // console.log("apiiiiiii", apiResp);
 
   return (
     <div className="App">
@@ -35,6 +41,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="wishlist" element={<Wishlist />} />
           <Route path="cart" element={<Cart />} />
+
+          <Route path="/men" element={<Men />} />
+          <Route path="/women" element={<Women />} />
+          <Route path="/kids" element={<Kids />} />
+          <Route path="/beauty" element={<Beauty />} />
+          <Route path="/home&living" element={<HomeLiving />} />
         </Routes>
       </BrowserRouter>
     </div>
