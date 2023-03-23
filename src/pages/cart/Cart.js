@@ -2,7 +2,7 @@ import React from "react";
 import Body from "../../components/body/Body";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
-import WishlistCart from "../../components/wishlistCart/WishlistCart";
+import WishlistCart from "../../components/wishlistBody/WishlistBody";
 
 import { useStateValue } from "../../redux/StateProvider";
 

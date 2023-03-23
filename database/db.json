@@ -28,7 +28,7 @@
       "description": "it is Louis Philippe Cotton Suit. Best suited for office wear. Cotton Fabrics",
       "offer": "Bank Offer10% off on ICICI Bank Credit Card EMI Transactions, up to ₹1250, on orders of ₹5,000 and aboveT&C",
       "seller": "Louis Philippe",
-      "stock": true
+      "stock": false
     },
     {
       "categoryId": 1001,
@@ -58,7 +58,7 @@
       "description": "it is Louis Philippe Cotton Suit. Best suited for office wear. Cotton Fabrics",
       "offer": "Bank Offer10% off on ICICI Bank Credit Card EMI Transactions, up to ₹1250, on orders of ₹5,000 and aboveT&C",
       "seller": "Louis Philippe",
-      "stock": true
+      "stock": false
     },
     {
       "categoryId": 1001,
@@ -88,7 +88,7 @@
       "description": "it is Louis Philippe Cotton Suit. Best suited for office wear. Cotton Fabrics",
       "offer": "Bank Offer10% off on ICICI Bank Credit Card EMI Transactions, up to ₹1250, on orders of ₹5,000 and aboveT&C",
       "seller": "Louis Philippe",
-      "stock": true
+      "stock": false
     },
 
     {
@@ -119,7 +119,7 @@
       "description": "it is Louis Philippe Cotton Suit. Best suited for office wear. Cotton Fabrics",
       "offer": "Bank Offer10% off on ICICI Bank Credit Card EMI Transactions, up to ₹1250, on orders of ₹5,000 and aboveT&C",
       "seller": "Louis Philippe",
-      "stock": true
+      "stock": false
     },
     {
       "categoryId": 1001,
@@ -149,7 +149,7 @@
       "description": "it is Louis Philippe Cotton Suit. Best suited for office wear. Cotton Fabrics",
       "offer": "Bank Offer10% off on ICICI Bank Credit Card EMI Transactions, up to ₹1250, on orders of ₹5,000 and aboveT&C",
       "seller": "Louis Philippe",
-      "stock": true
+      "stock": false
     },
     {
       "categoryId": 1001,
