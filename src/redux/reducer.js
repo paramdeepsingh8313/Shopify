@@ -1,6 +1,6 @@
 export const initialState = {
   apiData: [],
-  WishlistArray: [],
+  WishlistArray: [5001, 5002],
   cartArray: [],
   name: "Roshan",
   age: 20,
@@ -22,13 +22,13 @@ export const reducer = (state, action) => {
     case "WISHLIST":
       return {
         ...state,
-        WishlistArray: [...state.WishlistArray, action.value],
+        WishlistArray: action.value,
       };
 
     case "CARTLIST":
       return {
         ...state,
-        cartArray: [...state.cartArray, action.value],
+        cartArray: action.value,
       };
   }
 };

@@ -32,7 +32,7 @@ function Header() {
       <div className="headerIcons">
         <input type="search" placeholder="Search" />
         <NavLink to="/wishlist">
-          <img src={wishlist} />{" "}
+          <img src={wishlist} />
         </NavLink>
         <NavLink to="/cart">
           <img src={cart} />

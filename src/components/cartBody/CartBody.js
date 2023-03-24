@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./WishlistBody.css";
+import "./CartBody.css";
 import { useStateValue } from "../../redux/StateProvider";
+import { NavLink } from "react-router-dom";
 
-function WishlistBody() {
+function CartBody() {
   const [{ WishlistArray, apiData, cartArray }, dispatch] = useStateValue();
 
   const [temp, setTemp] = useState([]);
@@ -12,8 +13,8 @@ function WishlistBody() {
 
     apiData &&
       apiData.map((element) => {
-        WishlistArray &&
-          WishlistArray.map((elem) => {
+        cartArray &&
+          cartArray.map((elem) => {
             if (element?.itemID === elem) {
               temp.push(element);
             }
@@ -28,17 +29,17 @@ function WishlistBody() {
 
   useEffect(() => {
     refresh();
-  }, [WishlistArray]);
+  }, [cartArray]);
 
   function removeItem(id) {
     let result =
-      WishlistArray &&
-      WishlistArray.filter((element) => {
+      cartArray &&
+      cartArray.filter((element) => {
         return element !== id;
       });
 
     dispatch({
-      type: "WISHLIST",
+      type: "CARTLIST",
       value: result,
     });
 
@@ -46,14 +47,14 @@ function WishlistBody() {
   }
 
   function addToCart(id) {
-    if (cartArray.includes(id)) {
+    if (WishlistArray.includes(id)) {
       //do nothing
     } else {
-      let temp = cartArray;
+      let temp = WishlistArray;
       temp.push(id);
 
       dispatch({
-        type: "CARTLIST",
+        type: "WISHLIST",
         value: temp,
       });
     }
@@ -110,14 +111,17 @@ function WishlistBody() {
                     onClick={() => addToCart(element?.itemID)}
                     className="wishlistPageCartBtn"
                   >
-                    Cart
+                    Wishlist
                   </button>
-                  <button
-                    onClick={() => alert(element?.itemID)}
-                    className="wishlistPageBuyBtn"
-                  >
-                    Buy Now
-                  </button>
+
+                  <NavLink to="/checkout/" state={{ data: 10001 }}>
+                    <button
+                      onClick={() => alert(element?.itemID)}
+                      className="wishlistPageBuyBtn"
+                    >
+                      Buy Now
+                    </button>
+                  </NavLink>
                 </div>
               </div>
             </div>
@@ -127,4 +131,4 @@ function WishlistBody() {
   );
 }
 
-export default WishlistBody;
+export default CartBody;
