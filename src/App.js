@@ -13,6 +13,7 @@ import Beauty from "./pages/beauty/Beauty";
 
 import { useStateValue } from "./redux/StateProvider";
 import Checkout from "./pages/checkout/Checkout";
+import Description from "./pages/description/Description";
 
 function App() {
   const [apiResp, setApiResp] = useState();
@@ -48,7 +49,8 @@ function App() {
           <Route path="/kids" element={<Kids />} />
           <Route path="/beauty" element={<Beauty />} />
           <Route path="/home&living" element={<HomeLiving />} />
-          <Route path="/checkout/:id" element={<Checkout />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/description" element={<Description />} />
         </Routes>
       </BrowserRouter>
     </div>

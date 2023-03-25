@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./WishlistBody.css";
 import { useStateValue } from "../../redux/StateProvider";
+import { NavLink } from "react-router-dom";
 
 function WishlistBody() {
   const [{ WishlistArray, apiData, cartArray }, dispatch] = useStateValue();
@@ -112,12 +113,9 @@ function WishlistBody() {
                   >
                     Cart
                   </button>
-                  <button
-                    onClick={() => alert(element?.itemID)}
-                    className="wishlistPageBuyBtn"
-                  >
-                    Buy Now
-                  </button>
+                  <NavLink to="/checkout" state={{ id: element?.itemID }}>
+                    <button className="wishlistPageBuyBtn">Buy Now</button>
+                  </NavLink>
                 </div>
               </div>
             </div>

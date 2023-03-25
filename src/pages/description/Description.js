@@ -1,30 +1,28 @@
 import React from "react";
-import "./Checkout.css";
-import { useLocation, useParams } from "react-router-dom";
-import Body from "../../components/body/Body";
-import Footer from "../../components/footer/Footer";
+import { useLocation } from "react-router-dom";
 import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
+import DescriptionBody from "../../components/descriptionBody/DescriptionBody";
 import { useStateValue } from "../../redux/StateProvider";
-import CheckoutBody from "../../components/checkoutBody/CheckoutBody";
 
-function Checkout() {
+function Description() {
   const { state } = useLocation();
+  console.log(state.id);
+
   const [{ apiData }, dispatch] = useStateValue();
 
   const result = apiData.filter((element, index) => {
     return element?.itemID === state.id;
   });
 
-  console.log(result);
-
   return (
     <div>
       <Header />
-      <CheckoutBody data={result} />
+      <DescriptionBody data={result} />
 
       <Footer />
     </div>
   );
 }
 
-export default Checkout;
+export default Description;

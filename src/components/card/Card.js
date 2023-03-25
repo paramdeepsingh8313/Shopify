@@ -5,10 +5,14 @@ import cart from "../../assets/icons/cart.svg";
 import wishlist from "../../assets/icons/wishlist.svg";
 import { useStateValue } from "../../redux/StateProvider";
 
+import { useNavigate } from "react-router-dom";
+
 function Card(props) {
+  const Navigate = useNavigate();
+
   const [{ WishlistArray, cartArray }, dispatch] = useStateValue();
 
-  console.log("WishlistArray", WishlistArray);
+  // console.log("WishlistArray", WishlistArray);
 
   function checkWishList(id) {
     if (WishlistArray.includes(id)) {
@@ -37,12 +41,17 @@ function Card(props) {
     }
   }
 
-  console.log("cartArray", cartArray);
+  // console.log("cartArray", cartArray);
 
   return (
     <div>
       <div className="card">
-        <div className="cardImg">
+        <div
+          className="cardImg"
+          onClick={() =>
+            Navigate("/description", { state: { id: props?.data?.itemID } })
+          }
+        >
           {props.data && props?.data?.categoryId === 1001 ? (
             <img src={require(`../../assets/images/men/${props?.data?.img}`)} />
           ) : props.data && props?.data?.categoryId === 1002 ? (
