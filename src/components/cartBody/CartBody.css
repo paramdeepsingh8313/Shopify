@@ -1,10 +1,16 @@
-.WishlistCart {
+.CartBody {
   width: 100vw;
   height: 80vh;
   background-color: aqua;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
+  overflow: auto;
+}
+.CartBodyContainer {
+  width: 50%;
+  height: 80vh;
+  background-color: yellow;
   overflow: auto;
 }
 .itemContainer {

@@ -9,18 +9,19 @@ import CheckoutBody from "../../components/checkoutBody/CheckoutBody";
 
 function Checkout() {
   const { state } = useLocation();
-  const [{ apiData }, dispatch] = useStateValue();
+  const [{ cartArray }, dispatch] = useStateValue();
 
-  const result = apiData.filter((element, index) => {
-    return element?.itemID === state.id;
-  });
+  // const result = apiData.filter((element, index) => {
+  //   return element?.itemID === state.id;
+  // });
 
-  console.log(result);
+  // console.log(result);
 
   return (
     <div>
       <Header />
-      <CheckoutBody data={result} />
+      {/* <CheckoutBody data={result} /> */}
+      <CheckoutBody />
 
       <Footer />
     </div>

@@ -59,3 +59,12 @@
   font-style: italic;
   color: green;
 }
+.checkoutContent .descriptionBtn {
+  width: 50%;
+  /* background-color: white; */
+  display: flex;
+  justify-content: space-between;
+}
+.checkoutContent .descriptionBtn button {
+  width: 10vw;
+}

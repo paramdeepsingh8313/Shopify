@@ -7,7 +7,6 @@ import { useStateValue } from "../../redux/StateProvider";
 
 function Description() {
   const { state } = useLocation();
-  console.log(state.id);
 
   const [{ apiData }, dispatch] = useStateValue();
 

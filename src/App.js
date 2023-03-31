@@ -49,7 +49,7 @@ function App() {
           <Route path="/kids" element={<Kids />} />
           <Route path="/beauty" element={<Beauty />} />
           <Route path="/home&living" element={<HomeLiving />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/:id" element={<Checkout />} />
           <Route path="/description" element={<Description />} />
         </Routes>
       </BrowserRouter>
