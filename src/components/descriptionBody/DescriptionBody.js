@@ -92,16 +92,15 @@ function DescriptionBody(props) {
                   </summary>
                   <p className="checkoutContentSeller">{element?.seller}</p>
                 </details>
+                {element?.stock || <p className="itemStock">Out of Stock</p>}
 
                 <div className="descriptionBtn">
-                  <button onClick={() => handleCart(element?.itemID)}>
+                  <button
+                    onClick={() => handleCart(element?.itemID)}
+                    disabled={element?.stock ? false : true}
+                  >
                     Buy Now
                   </button>
-                  {/* <NavLink to="/checkout"> */}
-                  {/* <button onClick={() => handleCheckout(element?.itemID)}>
-                    Buy Now
-                  </button> */}
-                  {/* </NavLink> */}
                 </div>
               </div>
             </>

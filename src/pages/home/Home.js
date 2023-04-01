@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Body from "../../components/body/Body";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import { useStateValue } from "../../redux/StateProvider";
 
 function Home() {
-  const [{ apiData }, dispatch] = useStateValue();
+  const [{ apiData, searchContext }, dispatch] = useStateValue();
+
+  const [data, setData] = useState();
+
+  // if (searchContext[searchContext.length - 1].length > 0) {
+  //   console.log(searchContext[searchContext.length - 1]);
+  // } else {
+  //   setData(apiData);
+  // }
 
   return (
     <div>

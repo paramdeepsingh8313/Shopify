@@ -71,72 +71,76 @@ function CartBody() {
 
   return (
     <div className="CartBody">
-      <div className="CartBodyContainer">
-        {temp &&
-          temp.map((element) => {
-            return (
-              <div className="itemContainer">
-                <div className="itemImg">
-                  {element && element?.categoryId === 1001 ? (
-                    <img
-                      src={require(`../../assets/images/men/${element?.img}`)}
-                    />
-                  ) : element && element?.categoryId === 1002 ? (
-                    <img
-                      src={require(`../../assets/images/women/${element?.img}`)}
-                    />
-                  ) : element && element?.categoryId === 1003 ? (
-                    <img
-                      src={require(`../../assets/images/kids/${element?.img}`)}
-                    />
-                  ) : element && element?.categoryId === 1004 ? (
-                    <img
-                      src={require(`../../assets/images/beauty/${element?.img}`)}
-                    />
-                  ) : (
-                    <img
-                      src={require(`../../assets/images/home&living/${element?.img}`)}
-                    />
-                  )}
-                </div>
-                <div className="itemContent">
-                  <p>{element?.brand}</p>
+      {temp.length > 0 ? (
+        <>
+          <div className="CartBodyContainer">
+            {temp &&
+              temp.map((element) => {
+                return (
+                  <div className="itemContainer">
+                    <div className="itemImg">
+                      {element && element?.categoryId === 1001 ? (
+                        <img
+                          src={require(`../../assets/images/men/${element?.img}`)}
+                        />
+                      ) : element && element?.categoryId === 1002 ? (
+                        <img
+                          src={require(`../../assets/images/women/${element?.img}`)}
+                        />
+                      ) : element && element?.categoryId === 1003 ? (
+                        <img
+                          src={require(`../../assets/images/kids/${element?.img}`)}
+                        />
+                      ) : element && element?.categoryId === 1004 ? (
+                        <img
+                          src={require(`../../assets/images/beauty/${element?.img}`)}
+                        />
+                      ) : (
+                        <img
+                          src={require(`../../assets/images/home&living/${element?.img}`)}
+                        />
+                      )}
+                    </div>
+                    <div className="itemContent">
+                      <p>{element?.brand}</p>
 
-                  <p>Rs. {element?.price}</p>
+                      <p>Rs. {element?.price}</p>
 
-                  {element?.stock === true ? (
-                    <p className="InStock">In Stock</p>
-                  ) : (
-                    <p className="outOfStock">Out of Stock</p>
-                  )}
+                      {element?.stock === true ? (
+                        <p className="InStock">In Stock</p>
+                      ) : (
+                        <p className="outOfStock">Out of Stock</p>
+                      )}
 
-                  <div>
-                    <button
-                      onClick={() => removeItem(element?.itemID)}
-                      className="wishlistPageRemoveBtn"
-                    >
-                      Remove
-                    </button>
-                    <button
-                      onClick={() => addToCart(element?.itemID)}
-                      className="wishlistPageCartBtn"
-                    >
-                      Wishlist
-                    </button>
-
-                    {/* <NavLink to="/checkout" state={{ id: element?.itemID }}>
-                    <button className="wishlistPageBuyBtn">Buy Now</button>
-                  </NavLink> */}
+                      <div>
+                        <button
+                          onClick={() => removeItem(element?.itemID)}
+                          className="wishlistPageRemoveBtn"
+                        >
+                          Remove
+                        </button>
+                        <button
+                          onClick={() => addToCart(element?.itemID)}
+                          className="wishlistPageCartBtn"
+                        >
+                          Wishlist
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
-      </div>
-      <div>
-        <h1>Total Amount : Rs {totalPrice}</h1>
-        <button>Checkout</button>
-      </div>
+                );
+              })}
+          </div>
+          <div>
+            <h1>Total Amount : Rs {totalPrice}</h1>
+            <NavLink to="/checkout">
+              <button>Checkout</button>
+            </NavLink>
+          </div>
+        </>
+      ) : (
+        <h1 className="noItemFound">Currently No Item found in the Cart</h1>
+      )}
     </div>
   );
 }

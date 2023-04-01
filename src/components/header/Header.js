@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import cart from "../../assets/icons/cart.svg";
 import wishlist from "../../assets/icons/wishlist.svg";
 import { NavLink } from "react-router-dom";
+import { useStateValue } from "../../redux/StateProvider";
 
 function Header() {
+  const [searchText, setSearchText] = useState("");
+
+  const [{ searchContext }, dispatch] = useStateValue();
+
+  function handleChange(e) {
+    dispatch({
+      type: "SEARCH_CONTENT",
+      value: e,
+    });
+  }
+
+  // console.log("searchText", searchContext[searchContext.length - 1]);
+
   return (
     <div className="header">
       <div className="logo">
@@ -30,7 +44,13 @@ function Header() {
         </ul>
       </div>
       <div className="headerIcons">
-        <input type="search" placeholder="Search" />
+        <input
+          type="search"
+          placeholder="Search"
+          onChange={(e) => {
+            handleChange(e.target.value);
+          }}
+        />
         <NavLink to="/wishlist">
           <img src={wishlist} />
         </NavLink>

@@ -4,6 +4,7 @@ export const initialState = {
   cartArray: [],
   name: "Roshan",
   age: 20,
+  searchContext: [],
 };
 
 export const actionTypes = {
@@ -12,6 +13,7 @@ export const actionTypes = {
   AGE: "AGE",
   WISHLIST: "WISHLIST",
   CARTLIST: "CARTLIST",
+  SEARCH_CONTENT: "SEARCH_CONTENT",
 };
 
 export const reducer = (state, action) => {
@@ -29,6 +31,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cartArray: action.value,
+      };
+
+    case "SEARCH_CONTENT":
+      return {
+        ...state,
+        searchContext: [...state.searchContext, action.value],
       };
   }
 };

@@ -10,7 +10,7 @@
 .CartBodyContainer {
   width: 50%;
   height: 80vh;
-  background-color: yellow;
+  /* background-color: yellow; */
   overflow: auto;
 }
 .itemContainer {
@@ -53,4 +53,11 @@
 }
 .outOfStock {
   color: red;
+}
+.noItemFound {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
