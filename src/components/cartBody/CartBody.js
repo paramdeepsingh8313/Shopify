@@ -67,8 +67,6 @@ function CartBody() {
     }
   }
 
-  console.log("ooooooooo", cartArray);
-
   return (
     <div className="CartBody">
       {temp.length > 0 ? (

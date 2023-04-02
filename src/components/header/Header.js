@@ -22,7 +22,10 @@ function Header() {
   return (
     <div className="header">
       <div className="logo">
-        <NavLink to="/"> Shopify </NavLink>
+        <NavLink to="/" className="Shopify">
+          {" "}
+          Shopify{" "}
+        </NavLink>
       </div>
       <div className="menu">
         <ul>

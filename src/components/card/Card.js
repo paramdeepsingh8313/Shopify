@@ -12,8 +12,6 @@ function Card(props) {
 
   const [{ WishlistArray, cartArray }, dispatch] = useStateValue();
 
-  // console.log("WishlistArray", WishlistArray);
-
   function checkWishList(id) {
     if (WishlistArray.includes(id)) {
       // if the id is already present in the array, then dont push the same id again
@@ -40,8 +38,6 @@ function Card(props) {
       });
     }
   }
-
-  // console.log("cartArray", cartArray);
 
   return (
     <div>

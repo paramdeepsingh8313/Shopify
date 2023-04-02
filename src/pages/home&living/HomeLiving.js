@@ -7,11 +7,11 @@ import Header from "../../components/header/Header";
 import { useStateValue } from "../../redux/StateProvider";
 
 function HomeLiving() {
-  const [{ apiData }, dispatch] = useStateValue();
+  const [{ apiData, searchContext }, dispatch] = useStateValue();
 
   const [HomeData, setHomeData] = useState();
 
-  useEffect(() => {
+  function filterHomeLiving(apiData) {
     let tempArray = [];
 
     apiData &&
@@ -22,7 +22,32 @@ function HomeLiving() {
       });
 
     setHomeData(tempArray);
+  }
+
+  useEffect(() => {
+    filterHomeLiving(apiData);
   }, [apiData]);
+
+  useEffect(() => {
+    const temp = searchContext && searchContext.length - 1;
+    let tempArray = [];
+    if (searchContext[temp]) {
+      apiData &&
+        apiData.map((element) => {
+          if (
+            element?.brand
+              .toLowerCase()
+              .includes(searchContext[temp].toLowerCase())
+          ) {
+            tempArray.push(element);
+          }
+        });
+
+      filterHomeLiving(tempArray);
+    } else {
+      filterHomeLiving(apiData);
+    }
+  }, [searchContext]);
 
   return (
     <div>

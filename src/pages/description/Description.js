@@ -10,9 +10,11 @@ function Description() {
 
   const [{ apiData }, dispatch] = useStateValue();
 
-  const result = apiData.filter((element, index) => {
-    return element?.itemID === state.id;
-  });
+  const result =
+    apiData &&
+    apiData.filter((element, index) => {
+      return element?.itemID === state.id;
+    });
 
   return (
     <div>
