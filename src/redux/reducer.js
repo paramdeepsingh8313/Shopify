@@ -1,9 +1,10 @@
 export const initialState = {
   apiData: [],
-  WishlistArray: [11000001],
+  WishlistArray: [5001, 5002],
   cartArray: [],
   name: "Roshan",
   age: 20,
+  searchContext: [],
 };
 
 export const actionTypes = {
@@ -12,6 +13,7 @@ export const actionTypes = {
   AGE: "AGE",
   WISHLIST: "WISHLIST",
   CARTLIST: "CARTLIST",
+  SEARCH_CONTENT: "SEARCH_CONTENT",
 };
 
 export const reducer = (state, action) => {
@@ -22,13 +24,19 @@ export const reducer = (state, action) => {
     case "WISHLIST":
       return {
         ...state,
-        WishlistArray: [...state.WishlistArray, action.value],
+        WishlistArray: action.value,
       };
 
     case "CARTLIST":
       return {
         ...state,
-        cartArray: [...state.cartArray, action.value],
+        cartArray: action.value,
+      };
+
+    case "SEARCH_CONTENT":
+      return {
+        ...state,
+        searchContext: [...state.searchContext, action.value],
       };
   }
 };

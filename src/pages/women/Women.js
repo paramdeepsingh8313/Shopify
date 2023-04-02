@@ -8,11 +8,11 @@ import Header from "../../components/header/Header";
 import { useStateValue } from "../../redux/StateProvider";
 
 function Women() {
-  const [{ apiData }, dispatch] = useStateValue();
+  const [{ apiData, searchContext }, dispatch] = useStateValue();
 
   const [womenData, setWoMenData] = useState();
 
-  useEffect(() => {
+  function filterWomenData(apiData) {
     let tempArray = [];
 
     apiData &&
@@ -23,7 +23,32 @@ function Women() {
       });
 
     setWoMenData(tempArray);
+  }
+
+  useEffect(() => {
+    filterWomenData(apiData);
   }, [apiData]);
+
+  useEffect(() => {
+    const temp = searchContext && searchContext.length - 1;
+    let tempArray = [];
+    if (searchContext[temp]) {
+      apiData &&
+        apiData.map((element) => {
+          if (
+            element?.brand
+              .toLowerCase()
+              .includes(searchContext[temp].toLowerCase())
+          ) {
+            tempArray.push(element);
+          }
+        });
+
+      filterWomenData(tempArray);
+    } else {
+      filterWomenData(apiData);
+    }
+  }, [searchContext]);
 
   return (
     <div>

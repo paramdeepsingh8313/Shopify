@@ -5,25 +5,36 @@ import cart from "../../assets/icons/cart.svg";
 import wishlist from "../../assets/icons/wishlist.svg";
 import { useStateValue } from "../../redux/StateProvider";
 
+import { useNavigate } from "react-router-dom";
+
 function Card(props) {
+  const Navigate = useNavigate();
+
   const [{ WishlistArray, cartArray }, dispatch] = useStateValue();
 
   function checkWishList(id) {
     if (WishlistArray.includes(id)) {
+      // if the id is already present in the array, then dont push the same id again
     } else {
+      let temp = WishlistArray;
+      temp.push(id);
+
       dispatch({
         type: "WISHLIST",
-        value: id,
+        value: temp,
       });
     }
   }
 
   function checkCartList(id) {
     if (cartArray.includes(id)) {
+      // if the id is already present in the array, then dont push the same id again
     } else {
+      let temp = cartArray;
+      temp.push(id);
       dispatch({
         type: "CARTLIST",
-        value: id,
+        value: temp,
       });
     }
   }
@@ -31,7 +42,12 @@ function Card(props) {
   return (
     <div>
       <div className="card">
-        <div className="cardImg">
+        <div
+          className="cardImg"
+          onClick={() =>
+            Navigate("/description", { state: { id: props?.data?.itemID } })
+          }
+        >
           {props.data && props?.data?.categoryId === 1001 ? (
             <img src={require(`../../assets/images/men/${props?.data?.img}`)} />
           ) : props.data && props?.data?.categoryId === 1002 ? (

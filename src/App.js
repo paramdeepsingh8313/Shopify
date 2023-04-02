@@ -12,6 +12,8 @@ import HomeLiving from "./pages/home&living/HomeLiving";
 import Beauty from "./pages/beauty/Beauty";
 
 import { useStateValue } from "./redux/StateProvider";
+import Checkout from "./pages/checkout/Checkout";
+import Description from "./pages/description/Description";
 
 function App() {
   const [apiResp, setApiResp] = useState();
@@ -32,8 +34,6 @@ function App() {
     dispatch({ type: "APIDATA", value: apiResp });
   }, [apiResp]);
 
-  // console.log("apiiiiiii", apiResp);
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -47,6 +47,8 @@ function App() {
           <Route path="/kids" element={<Kids />} />
           <Route path="/beauty" element={<Beauty />} />
           <Route path="/home&living" element={<HomeLiving />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/description" element={<Description />} />
         </Routes>
       </BrowserRouter>
     </div>
